@@ -242,7 +242,7 @@ const EditPage = ({ params }) => {
         } else {
             const selectedKey = [...id][0];
             const selectedAnimal = locationsCollaction.find(item => item.id === selectedKey);
-            setArea({ id: selectedAnimal.id, location: selectedAnimal.location });
+            setArea({ id: selectedAnimal?.id, location: selectedAnimal?.location });
         }
     };
 

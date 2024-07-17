@@ -92,7 +92,7 @@ const AddPage = () => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
 
-    const [built, setBuilt] = React.useState({
+    const [built, setBuilt] = useState({
         start: parseDate("2024-04-01"),
         end: parseDate("2024-04-08"),
     });
@@ -213,7 +213,7 @@ const AddPage = () => {
         } else {
             const selectedKey = [...id][0];
             const selectedAnimal = locationsCollaction.find(item => item.id === selectedKey);
-            setArea({ id: selectedAnimal.id, location: selectedAnimal.location });
+            setArea({ id: selectedAnimal.id, location: selectedAnimal?.location });
         }
     };
     useEffect(() => {
@@ -346,7 +346,7 @@ const AddPage = () => {
             type: type?.type,
         },
         sale_price: Number(sale_price),
-        condition: condition?.currentKey ? String(condition?.currentKey) : Array.from(condition)[0],
+        condition: String(Array?.from(condition)[0]),
         isVarified: Boolean(isVarified),
         overview: String(overview),
         address: {
@@ -358,8 +358,8 @@ const AddPage = () => {
         },
         property_details: {
             apartment_area: apartment_area ? String(apartment_area) : '',
-            bathrooms: bathrooms?.currentKey ? String(bathrooms?.currentKey) : '',
-            bedrooms: bedrooms?.currentKey ? String(bedrooms?.currentKey) : '',
+            bathrooms: String(Array?.from(bathrooms)[0]),
+            bedrooms: String(Array.from(bedrooms)[0]),
             built: {
                 start: {
                     year: built?.start?.year,
